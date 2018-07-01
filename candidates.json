@@ -1,0 +1,16 @@
+[{
+    "name": "Dan",
+    "image": "//robohash.org/dan.jpg",
+    "party": "Dan Party",
+    "pledge": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar risus libero, eget porttitor lorem mollis eget."
+}, {
+    "name": "Caroline",
+    "image": "//robohash.org/caroline.jpg",
+    "party": "Caroline Party",
+    "pledge": "Sed viverra, erat et iaculis congue, arcu metus finibus risus, pretium rhoncus sem turpis id ligula."
+}, {
+    "name": "Caleb",
+    "image": "//robohash.org/caleb.jpg",
+    "party": "Caleb Party",
+    "pledge": "Nunc eleifend porttitor erat vitae varius. Donec facilisis venenatis consectetur."
+}]

@@ -1,0 +1,62 @@
+{{!-- {{#if user}}
+<p>Hello, {{ user.username }}. View your
+    <a href="/vote">vote</a>.</p>
+{{else}}
+<p>Welcome! Please
+    <a href="/login">log in</a>.</p>
+
+{{/if}} --}}
+
+<style>
+    html,
+    body {
+        height: 100%;
+        background: #20155A;
+    }
+
+    .login {
+        /*
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        */
+        background-color: white;
+        color: #20155A;
+        padding: 25px;
+        width: 430px;
+        /*border: 1px solid #20155A;*/
+        margin-top: 10px;
+    }
+
+    .logo {
+        width: 500px;
+    }
+
+    /* TODO - Clean the logo up so it's trnsparent and animated and put over video background
+    #bg-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -100;
+    }
+    */
+</style>
+
+
+{{!--
+<video autoplay muted loop id="bg-video">
+    <source src="/bg.mp4" type="video/mp4">
+</video> --}}
+
+<div class="d-flex align-items-center flex-column justify-content-center h-100">
+
+    <img class="img-fluid logo" src="/logo-big.png" />
+    <div class="login">
+        <p class="text-center">Login with your social media account</p>
+        <div class="text-center">
+            <a href="/login" class="btn btn-primary">
+                <i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+        </div>
+    </div>
+</div>

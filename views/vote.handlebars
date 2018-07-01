@@ -1,0 +1,54 @@
+<style>
+    html,
+    body {
+        background: #20155A;
+    }
+
+    .logo-sm {
+        width: 80px;
+    }
+</style>
+<div class="container ">
+    <div class="row">
+        <div class="col text-white">
+            <img class="img-fluid logo-sm" src="/logo-big.png" />
+            <span>
+                <a href="/logout" class="btn btn-primary">Logout</a>
+            </span>
+        </div>
+    </div>
+    <form action="/vote" method="POST">
+        <div class="row">
+            <div class="card-deck">
+                {{#each candidates}}
+                <div class="card" style="">
+                    <img class="card-img-top candidate-img" src="{{this.image}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5>
+                        <p class="card-text">{{this.pledge}}</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="candidate" id="candidate{{@index}}" value="{{this.name}}" {{#if this.voted}}
+                                checked="checked" {{/if}} {{#if @root.voter.voted}} disabled="disabled" {{/if}} {{@root.voter.voted}}>
+                            <label class="form-check-label" for="candidate{{@index}}">
+                                {{this.name}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-white">
+                {{#if voter.voted}} You voted for
+                <b>{{voter.candidate}}</b>
+                <br/> In polling station:
+                <b>{{voter.pollingBooth}}</b> at
+                <b>{{voter.voteTime}}</b>
+                {{else}}
+                <button type="submit" class="btn btn-primary">Vote</button>
+                {{/if}}
+            </div>
+        </div>
+    </form>
+</div>
