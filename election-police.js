@@ -2,6 +2,7 @@ var express = require('express')
 var passport = require('passport')
 var Strategy = require('passport-facebook').Strategy
 require('dotenv').config()
+
 passport.use(new Strategy({
   clientID: process.env.FACEBOOK_CLIENT_ID,
   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
@@ -12,10 +13,12 @@ function (accessToken, refreshToken, profile, cb) {
 }))
 
 passport.serializeUser(function (user, cb) {
+  console.log('serializeUser', user)
   cb(null, user)
 })
 
 passport.deserializeUser(function (obj, cb) {
+  console.log('deserializeUser', obj)
   cb(null, obj)
 })
 
@@ -47,7 +50,7 @@ app.get('/',
 app.get('/login',
   passport.authenticate('facebook', {
     scope: 'email',
-    authType: 'reauthenticate',
+    authType: 'reauthorize',
     authNonce: 'nonce' + Math.random().toString(36).substring(7)
   }))
 
@@ -56,15 +59,21 @@ app.get('/login/facebook/return',
   function (req, res) {
     res.redirect('/vote')
   })
+
 app.get('/logout', function (req, res) {
   // TODO - Need to logout from facebook as part of passport logout
   req.logout()
-  res.redirect('/')
+  res.redirect('/close')
 })
+
+app.get('/close',
+  function (req, res) {
+    res.render('home', { title: 'Close' })
+  })
 app.get('/vote',
   require('connect-ensure-login').ensureLoggedIn(),
   async function (req, res) {
-    console.log('req.user', req.user)
+    console.log('vote req.user', req.user)
     var voter = await contract.getVoter(req.user.id)
     candidates.forEach(function (candidate) {
       if (candidate.name === voter.candidate) {
@@ -80,6 +89,16 @@ app.post('/vote',
     console.log('req.user voted', req.user, candidate)
     await contract.vote(req.user.id, req.user.displayName, candidate)
     res.redirect('/vote')
+  })
+
+app.get('/results',
+  async function (req, res) {
+    console.log('vote req.user', req.user)
+    candidates.forEach(async function (candidate) {
+      var votes = await contract.getVoteCount(candidate.name)
+      candidate.votes = votes
+    })
+    res.render('results', {user: req.user, candidates: candidates})
   })
 
 app.listen(5200)

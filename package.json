@@ -24,6 +24,7 @@
     "ganache-cli": "^6.1.4"
   },
   "scripts": {
-    "ganache": "rm -f blockchain/generated-config.json && node_modules/.bin/ganache-cli -l 990000000000000"
+    "ganache": "rm -f blockchain/generated-config.json && node_modules/.bin/ganache-cli -l 990000000000000",
+    "start": "rm -f blockchain/generated-config.json && node election-police.js"
   }
 }

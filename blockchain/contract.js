@@ -111,7 +111,11 @@ function getVotingStats () {
     console.log('Votes for ' + candidate.name + ': ' + voteCount)
   })
 }
-
+exports.getVoteCount = async function (candidateName) {
+  var voteCount = CONTRACT.getTotalVotesFor.call(candidateName).toLocaleString()
+  console.log('Votes for ' + candidateName + ': ' + voteCount)
+  return voteCount
+}
 exports.vote = async function (voterId, voterName, candidate) {
   console.log('Vote:', voterId, voterName, candidate)
   try {

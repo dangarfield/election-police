@@ -40,11 +40,14 @@ Installation and Usage
 - Install `git` and clone this repo
 - Install dependencies through `npm install`
 - For facebook login, you need to set the some environment variables (in the `.env` file). You can either create a facebook app yourself and set the App Id and secret in the files, or ask Dan.
-- Start ethereum (local ganache) in one terminal `npm run ganache`. This will also remove your generated-contract.json file (uses rm -f, needs to be changed on native windows if not using docker etc)
-- In a new terminal, run app with `node app.js`, or `nodemon app.js` or `pm2` etc. This will compile and generate and deploy the contract (if the generated-config.json is missing). It also creates a polling node and authenticates it against the contract on startup. This should be a set as separate task within a distributed app environment, but initial local testing is ok
+- Start ethereum (local ganache) in one terminal `npm run ganache`. This will also remove your generated-contract.json file (uses rm -f, needs to be changed on native windows if not using docker etc). Change for windows for ganache cli, or just install ganache gui and set the port to 8545
+- In a new terminal, run app with `npm start`. This will compile and generate and deploy the contract (if the generated-config.json is missing). It also creates a polling node and authenticates it against the contract on startup. This should be a set as separate task within a distributed app environment, but initial local testing is ok
 - Candidate data from `candidates.json` will be used in the contract and UI
 - View app in `http://localhost:5200`
 - You can also debug the contract a browser if you find that easier `https://remix.ethereum.org`, copy and paste the contract in the online IDE, and connect by adding the address of the deployed contract to your local ganache instance. Everything is available to debug easily here although I'm sure there are better ways
+- Note: Time did not allow a quick way of soling the passport-facebook logout issue as I would have to implement the JS SDK in the browser, which is a pain. Instead, I opted for using firefox and a couple of addons - Linkognito, opens links with a class of 'linkognito' in an incognito tab - TabAutoClose, closes a tab with a certain regex title. This simply enabled me to ensure every login was in a separate session as if from a different computer
+- Voting results at `http://localhost:5200/results`
+
 
 ### TODO
 - Encryption and decryption of message content as above
