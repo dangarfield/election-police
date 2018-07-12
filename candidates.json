@@ -1,16 +1,16 @@
 [{
-    "name": "Dan",
-    "image": "//robohash.org/dan.jpg",
-    "party": "Dan Party",
-    "pledge": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar risus libero, eget porttitor lorem mollis eget."
+    "name": "Yianni",
+    "image": "//robohash.org/yianni.jpg",
+    "party": "Yianni Party",
+    "pledge": "When I was younger I felt like a man trapped inside a woman’s body. Then I was born."
 }, {
-    "name": "Caroline",
-    "image": "//robohash.org/caroline.jpg",
-    "party": "Caroline Party",
-    "pledge": "Sed viverra, erat et iaculis congue, arcu metus finibus risus, pretium rhoncus sem turpis id ligula."
+    "name": "Will",
+    "image": "//robohash.org/will.jpg",
+    "party": "Will Party",
+    "pledge": "I was raised as an only child, which really annoyed my sister."
 }, {
-    "name": "Caleb",
-    "image": "//robohash.org/caleb.jpg",
-    "party": "Caleb Party",
-    "pledge": "Nunc eleifend porttitor erat vitae varius. Donec facilisis venenatis consectetur."
+    "name": "Nick",
+    "image": "//robohash.org/Nick.jpg",
+    "party": "Nick Party",
+    "pledge": "I needed a password eight characters long so I picked Snow White and the Seven Dwarves"
 }]

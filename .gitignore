@@ -79,3 +79,4 @@ typings/
 testnet
 package-lock.json
 .vscode
+generated-config.json
