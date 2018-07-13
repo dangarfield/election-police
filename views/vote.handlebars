@@ -19,6 +19,7 @@
     </div>
     <form action="/vote" method="POST">
         <div class="row">
+            <h1 class="text-white text-center w-100">Fringe Festival - Best Joke</h1>
             <div class="card-deck">
                 {{#each candidates}}
                 <div class="card" style="">
@@ -30,7 +31,7 @@
                             <input class="form-check-input" type="radio" name="candidate" id="candidate{{@index}}" value="{{this.name}}" {{#if this.voted}}
                                 checked="checked" {{/if}} {{#if @root.voter.voted}} disabled="disabled" {{/if}} {{@root.voter.voted}}>
                             <label class="form-check-label" for="candidate{{@index}}">
-                                {{this.name}}
+                                Vote for {{this.name}}
                             </label>
                         </div>
                     </div>
@@ -39,14 +40,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col text-white">
+            <div class="col text-white text-center mt-3 mb-3">
                 {{#if voter.voted}} You voted for
                 <b>{{voter.candidate}}</b>
                 <br/> In polling station:
                 <b>{{voter.pollingBooth}}</b> at
                 <b>{{voter.voteTime}}</b>
                 {{else}}
-                <button type="submit" class="btn btn-primary">Vote</button>
+                <button type="submit" class="btn btn-primary btn-lg">Vote</button>
                 {{/if}}
             </div>
         </div>
